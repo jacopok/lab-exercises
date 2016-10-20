@@ -26,8 +26,13 @@ int main(){
         vol = vol * vector[i];
     }
     // area2 = 2 * (n1 * n2 + n2 * n3 + n1 * n3);
-    for 
-
+    for (int i=2; i>=0; i--) {
+        for (int j = 2; j>=0 ; j--) {
+            if (i != j) {
+                area2 = area2 + 2* ( vector[i] * vector[j]);
+            }
+        }
+    }
     cout << "The volume and total surface of a parallelogram \nwith your numbers as its sides are respectively " << vol << " and " << area2 << "\nNow what is your number?" << endl;
 /*    int folly;
     cin >> folly;
