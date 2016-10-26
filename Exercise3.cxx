@@ -26,7 +26,7 @@
 #include <cmath>
 using namespace std;
 
-void scale(double temperature, double temperatures[3]);
+int scale(double temperature, double temperatures[3]);
 
 int main(){
 /*
@@ -45,13 +45,13 @@ int main(){
     cin >> height;
     double bmw = mass / ( height * height );
     cout << "Your BMW is: " << bmw << endl;
-    
 */
+
     cout << "Let us treat temperatures. Give me a temperature (I will ask which scale you used later): ";
     double temperature;
     cin >> temperature;
-
-    scale(temperature, *temperatures);
+    double temperatures [3];
+    int type_index = scale(temperature, temperatures);
     
     cout << "Your temperature in the other scales is:" << endl;
     char letters [3] = {'K', 'C', 'F'};
@@ -63,11 +63,10 @@ int main(){
     return 0;
 }
 
-void scale(double temperature, double temperatures[3]){
+int scale(double temperature, double temperatures[3]){
     cout << "Which temperature scale did you use? Insert 'K', 'C' or 'F'. " << endl; 
     char temp_type;
     cin >> temp_type;
-    double temperatures [3];
     int type_index;
     switch (temp_type){
         case 'K':
@@ -90,7 +89,8 @@ void scale(double temperature, double temperatures[3]){
         break;
         default:
             cout << "That is not a temperature scale!" << endl;
-            scale(temperature, *temperatures);
+            scale(temperature, temperatures);
         break;
     }
+    return type_index;
 }
