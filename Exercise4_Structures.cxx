@@ -38,6 +38,8 @@ struct p_complex{
 
 p_complex polar(c_complex z);
 
+void write_complex(c_complex z);
+
 int main(){
     cout << "What are your coordinates? (Real first)" << endl;
     c_complex number;
@@ -50,16 +52,24 @@ int main(){
     c_complex sum;
     sum.re = number.re + number2.re;
     sum.im = number.im + number2.im;
-    p_complex p_sum = polar(sum);
-    cout << "The sum of these is: " << sum.re << " + " << sum.im << "i, in polar cordinates " << p_sum.mag << "(e^(" << p_sum.arg << "i))" << endl;
+    c_complex product;
+    product.re = number.re * number2.re - number.im * number.re;
+    product.im = number.re * number2.im + number.im * number2.re;
+    cout << "Their sum is ";
+    write_complex(sum);
+    cout << "Their product is ";
+    write_complex(product);
     return 0;
 }
 
 p_complex polar(c_complex z){
-    double mag = sqrt( pow(z.re, 2) + pow(z.im, 2) );
-    double arg = atan2( z.im, z.re );
     p_complex z_p;
-    z_p.mag = mag;
-    z_p.arg = arg;
+    z_p.mag = sqrt( pow(z.re, 2) + pow(z.im, 2) );
+    z_p.arg = atan2( z.im, z.re );
     return z_p;
+}
+
+void write_complex(c_complex z){
+    p_complex z_polar = polar(z);
+    cout << z.re << " + " << z.im << "i, in polar cordinates " << z_polar.mag << "e^(" << z_polar.arg << "i)" << endl;
 }

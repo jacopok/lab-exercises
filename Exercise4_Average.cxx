@@ -43,6 +43,6 @@ int main(){
         sum += array[ind];
     }
     sum = sum / number;
-    cout << "The average is: " << sum << endl;
+    cout << "\nThe average of these " << number << " numbers is: " << sum << endl;
     return 0;
 }
