@@ -31,7 +31,7 @@ struct student {
     string name;
     string surname;
     long int id;
-    int *grades = new int[i];
+    int * grades = new int[0];
     double average;
 };
 

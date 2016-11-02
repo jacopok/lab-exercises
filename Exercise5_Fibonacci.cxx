@@ -30,17 +30,17 @@ int calcola_fib(int k);
 
 int main(){
     cout << "Which Fibonacci number do you want to calculate?";
-    int number;
-    cin >> number;
-    cout << "The " << number << "th Fibonacci number is: " << calcola_fib(number) << endl;
-    double ratio = (double) calcola_fib(number) / calcola_fib(number - 1);
+    int k;
+    cin >> k;
+    cout << "The " << k << "th Fibonacci number is: " << calcola_fib(k) << endl;
+    double ratio = (double) calcola_fib(k) / calcola_fib(k - 1);
     cout << "The ratio with its predecessor is: " << ratio << endl;
     return 0;
 }
 
 int calcola_fib(int k){
-    long int number[k+1];
-    number[0] = 1;
+    long double number[k+1];
+    number[0] = 0;
     number[1] = 1;
     for(int i = 2; i<=k; i++){
         number[i] = number[i-1] + number[i-2];

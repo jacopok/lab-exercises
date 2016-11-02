@@ -27,10 +27,10 @@
 using namespace std;
 
 int main(){
-    double i;
+    int i;
     cout << "How many terms do you want? ";
     cin >> i;
-    double term = (double) pow(1 + ( 1 / i ), i);
+    double term = pow(1. + ( 1. / double(i) ), i);
     cout << "The " << i << "-th term of the sequence is " << term << endl;
     double error = (M_E - term) / M_E;
     cout << "The error with respect to " << M_E << " is " << error*100 << "%" << endl;
