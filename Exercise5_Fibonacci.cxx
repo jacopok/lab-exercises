@@ -29,16 +29,21 @@ using namespace std;
 int calcola_fib(int k);
 
 int main(){
-    
+    cout << "Which Fibonacci number do you want to calculate?";
+    int number;
+    cin >> number;
+    cout << "The " << number << "th Fibonacci number is: " << calcola_fib(number) << endl;
+    double ratio = (double) calcola_fib(number) / calcola_fib(number - 1);
+    cout << "The ratio with its predecessor is: " << ratio << endl;
     return 0;
 }
 
 int calcola_fib(int k){
-    long long numero[k];
-    numero[0] = 1;
-    numero[1] = 1;
+    long int number[k+1];
+    number[0] = 1;
+    number[1] = 1;
     for(int i = 2; i<=k; i++){
-        numero[i] = numero[i-1] + numero[i-2];
+        number[i] = number[i-1] + number[i-2];
     }
-    return numero[k];
+    return number[k];
 }

@@ -24,31 +24,24 @@
 
 #include <iostream>
 #include <cmath>
-
-#include <string>
+#include <vector>
 using namespace std;
 
 struct student {
     string name;
     string surname;
     long int id;
-    int grades[30];
+    vector<int> grades;
     double average;
 };
 
 int main(){
     student first;
-    cout << "Insert the name of the student: ";
-    cin >> first.name;
-    cout << "Insert the surname of the student: ";
-    cin >> first.surname;
-    cout << "Insert the id number of the student: ";
-    cin >> first.id;
     int i = 0, grade;
-    cout << "Give me a grade or press CTRL-D (I can only handle 30): ";
-    while(cin >> grade and i != 30){
+    cout << "Give me a grade or press CTRL-D: ";
+    while(cin >> grade){
         cout << "Give me a grade or press CTRL-D: ";
-        first.grades[i] = grade;
+        first.grades.push_back(grade);
         i++;
     }
     double sum = 0;
@@ -57,5 +50,5 @@ int main(){
         }
     double average = sum / i;
     cout << "The average is " << average << endl;
-    return 0;
+return 0;
 }

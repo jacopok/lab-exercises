@@ -24,7 +24,6 @@
 
 #include <iostream>
 #include <cmath>
-
 #include <string>
 using namespace std;
 
@@ -32,7 +31,7 @@ struct student {
     string name;
     string surname;
     long int id;
-    int grades[30];
+    int *grades = new int[i];
     double average;
 };
 
@@ -44,18 +43,22 @@ int main(){
     cin >> first.surname;
     cout << "Insert the id number of the student: ";
     cin >> first.id;
-    int i = 0, grade;
-    cout << "Give me a grade or press CTRL-D (I can only handle 30): ";
-    while(cin >> grade and i != 30){
-        cout << "Give me a grade or press CTRL-D: ";
-        first.grades[i] = grade;
-        i++;
-    }
-    double sum = 0;
-    for(int k = 0; k<i; k++){
+    int i;
+    cout << "How many exams did you take? ";
+    cin >> i;
+    int max, min, sum;
+    for(int k=0; k!=i; k++){
+        cout << "Insert the grade of exam " << k + 1;
+        cin >> first.grades[k];
+        if(first.grades[k]>max){
+            max = first.grades[k];
+        }
+        if(first.grades[k]<min){
+            min = first.grades[k];
         sum += first.grades[k];
         }
-    double average = sum / i;
-    cout << "The average is " << average << endl;
+    }
+    double average = (double) sum / i;
+    cout << "The average is " << average << ", the minimum is " << min << ", the maximum is " << max << endl;
     return 0;
 }

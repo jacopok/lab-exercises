@@ -24,38 +24,15 @@
 
 #include <iostream>
 #include <cmath>
-
-#include <string>
 using namespace std;
 
-struct student {
-    string name;
-    string surname;
-    long int id;
-    int grades[30];
-    double average;
-};
-
 int main(){
-    student first;
-    cout << "Insert the name of the student: ";
-    cin >> first.name;
-    cout << "Insert the surname of the student: ";
-    cin >> first.surname;
-    cout << "Insert the id number of the student: ";
-    cin >> first.id;
-    int i = 0, grade;
-    cout << "Give me a grade or press CTRL-D (I can only handle 30): ";
-    while(cin >> grade and i != 30){
-        cout << "Give me a grade or press CTRL-D: ";
-        first.grades[i] = grade;
-        i++;
-    }
-    double sum = 0;
-    for(int k = 0; k<i; k++){
-        sum += first.grades[k];
-        }
-    double average = sum / i;
-    cout << "The average is " << average << endl;
+    double i;
+    cout << "How many terms do you want? ";
+    cin >> i;
+    double term = (double) pow(1 + ( 1 / i ), i);
+    cout << "The " << i << "-th term of the sequence is " << term << endl;
+    double error = (M_E - term) / M_E;
+    cout << "The error with respect to " << M_E << " is " << error*100 << "%" << endl;
     return 0;
 }
