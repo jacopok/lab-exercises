@@ -1,5 +1,5 @@
 /*
- * Exercise6.cxx
+ * Exercise7.cxx
  * 
  * Copyright 2016 jacopot <jacopot@dip075.studenti.math.unipd.it>
  * 
@@ -25,7 +25,7 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
-#include <random> // compile with -std=c++11
+#include <random> //compile with -std=c++11
 
 using namespace std;
 
@@ -37,19 +37,14 @@ int main(){
     int number;
     cin >> number;
     vector<unsigned> histogram (13, 0);
-    for(int i = 0; i < number; i++){
-        ++histogram[generator()%13];
-    }
     print_histogram(histogram);
     return 0;
 }
 
 void print_histogram(vector<unsigned>& histogram){
     for(int index = 0; index < 13; index++){
-        cout << 18 + index << " ";
-        for(int i = histogram[index]; i > 0; i--){
-            cout << "*";
-        }
+        cout << 18 + index << " " << histogram[index];
         cout << endl;
     }
 }
+

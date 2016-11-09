@@ -25,7 +25,7 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
-#include <random>
+#include <random> // compile with -std=c++11
 
 using namespace std;
 
