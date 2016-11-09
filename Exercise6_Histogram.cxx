@@ -1,5 +1,5 @@
 /*
- * Exercise5.cxx
+ * Exercise6.cxx
  * 
  * Copyright 2016 jacopot <jacopot@dip075.studenti.math.unipd.it>
  * 
@@ -27,28 +27,27 @@
 #include <vector>
 using namespace std;
 
-struct student {
-    string name;
-    string surname;
-    long int id;
-    vector<int> grades;
-    double average;
-};
+void print_histogram(vector<unsigned>& histogram);
 
 int main(){
-    student first;
-    int i = 0, grade;
-    cout << "Give me a grade or press CTRL-D: ";
+    vector<unsigned> histogram (13, 0);
+    unsigned grade;
+    unsigned total = 0;
     while(cin >> grade){
-        cout << "Give me a grade or press CTRL-D: ";
-        first.grades.push_back(grade);
-        i++;
+        ++histogram[grade-18];
+        ++total;
     }
-    double sum = 0;
-    for(int k = 0; k<i; k++){
-        sum += first.grades[k];
+    cout << "You have inserted " << total << " grades" << endl;
+    print_histogram(histogram);
+    return 0;
+}
+
+void print_histogram(vector<unsigned>& histogram){
+    for(int index = 0; index < 13; index++){
+        cout << 18 + index << " ";
+        for(int i = histogram[index]; i > 0; i--){
+            cout << "*";
         }
-    double average = sum / i;
-    cout << "The average is " << average << endl;
-return 0;
+        cout << endl;
+    }
 }

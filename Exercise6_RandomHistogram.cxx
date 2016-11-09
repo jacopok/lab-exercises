@@ -1,5 +1,5 @@
 /*
- * Exercise5.cxx
+ * Exercise6.cxx
  * 
  * Copyright 2016 jacopot <jacopot@dip075.studenti.math.unipd.it>
  * 
@@ -25,30 +25,31 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <random>
+
 using namespace std;
 
-struct student {
-    string name;
-    string surname;
-    long int id;
-    vector<int> grades;
-    double average;
-};
+void print_histogram(vector<unsigned>& histogram);
 
 int main(){
-    student first;
-    int i = 0, grade;
-    cout << "Give me a grade or press CTRL-D: ";
-    while(cin >> grade){
-        cout << "Give me a grade or press CTRL-D: ";
-        first.grades.push_back(grade);
-        i++;
+    default_random_engine generator;
+    cout << "How many random grades do you want? " << endl;
+    int number;
+    cin >> number;
+    vector<unsigned> histogram (13, 0);
+    for(int i = 0; i < number; i++){
+        ++histogram[generator()%13];
     }
-    double sum = 0;
-    for(int k = 0; k<i; k++){
-        sum += first.grades[k];
+    print_histogram(histogram);
+    return 0;
+}
+
+void print_histogram(vector<unsigned>& histogram){
+    for(int index = 0; index < 13; index++){
+        cout << 18 + index << " ";
+        for(int i = histogram[index]; i > 0; i--){
+            cout << "*";
         }
-    double average = sum / i;
-    cout << "The average is " << average << endl;
-return 0;
+        cout << endl;
+    }
 }
