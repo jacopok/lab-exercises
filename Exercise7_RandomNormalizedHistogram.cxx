@@ -25,16 +25,31 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <random>
 
 using namespace std;
 
 void print_histogram(vector<unsigned>& histogram);
 
 int main(){
+    default_random_engine generator;
+//    cout << "How many random grades do you want? " << endl;
+    int number;
+    cin >> number;
+//    cout << "What should be the average? " << endl;
+    double average;
+    cin >> average;
+    average -= 18;
+//    cout << "What should be the standard deviation? " << endl;
+    double deviation;
+    cin >> deviation;
+    normal_distribution<> norm(average, deviation);
     vector<unsigned> histogram (13, 0);
-    int grade;
-    while(cin >> grade) {
-        ++histogram[grade - 18];
+    for(int i = 0; i < number; i++){
+        auto index = lround(norm(generator));
+        if(index < 13 && index >= 0){
+            ++histogram[index];
+        }
     }
     print_histogram(histogram);
     return 0;

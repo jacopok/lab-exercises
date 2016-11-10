@@ -25,16 +25,20 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <random>
 
 using namespace std;
 
 void print_histogram(vector<unsigned>& histogram);
 
 int main(){
+    default_random_engine generator;
+    cout << "How many random grades do you want? " << endl;
+    int number;
+    cin >> number;
     vector<unsigned> histogram (13, 0);
-    int grade;
-    while(cin >> grade) {
-        ++histogram[grade - 18];
+    for(int i = 0; i < number; i++){
+        ++histogram[generator()%13];
     }
     print_histogram(histogram);
     return 0;
@@ -42,7 +46,7 @@ int main(){
 
 void print_histogram(vector<unsigned>& histogram){
     for(int index = 0; index < 13; index++){
-        cout << 18 + index << " " << histogram[index];
+        cout << 18 + index << ": " << histogram[index];
         cout << endl;
     }
 }

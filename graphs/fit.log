@@ -1,0 +1,70 @@
+
+
+*******************************************************************************
+Thu Nov 10 16:56:55 2016
+
+
+FIT:    data read from "data.txt" using 1:2:3
+        format = x:z:s
+        #datapoints = 10
+function used for fitting: f(x)
+	f(x) = a* x * x + b * x + c
+fitted parameters initialized with current variable values
+
+Warning: Initial value of parameter 'b' is zero.
+Warning: Initial value of parameter 'c' is zero.
+iter      chisq       delta/lim  lambda   a             b             c            
+   0 1.3531092539e+00   0.00e+00  5.87e+00    1.000000e+00   1.000000e-30   1.000000e-30
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Thu Nov 10 16:57:35 2016
+
+
+FIT:    data read from "data.txt" using 1:2:3
+        format = x:z:s
+        #datapoints = 10
+function used for fitting: f(x)
+	f(x) = a* x * x + b * x + c
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             c            
+   0 4.9370261785e+02   0.00e+00  6.63e+00    1.014603e+00   1.000000e+00   1.000000e+00
+   4 1.1050164271e+00  -4.35e-05  6.63e-04    1.007231e+00   6.497811e-02  -7.145224e-02
+
+After 4 iterations the fit converged.
+final sum of squares of residuals : 1.10502
+rel. change during last iteration : -4.35465e-10
+
+degrees of freedom    (FIT_NDF)                        : 7
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.397315
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.157859
+p-value of the Chisq distribution (FIT_P)              : 0.992952
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 1.00723          +/- 0.03581      (3.555%)
+b               = 0.0649781        +/- 0.2314       (356.2%)
+c               = -0.0714522       +/- 0.2113       (295.7%)
+
+correlation matrix of the fit parameters:
+                a      b      c      
+a               1.000 
+b              -0.923  1.000 
+c               0.869 -0.979  1.000 
+
+
+*******************************************************************************
+Thu Nov 10 17:01:54 2016
+
+
+FIT:    data read from "data.txt" using 1:2:3
+        format = x:z:s
+        #datapoints = 10
+function used for fitting: f(x)
+	f(x) = a* x * x + b * x + c
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             c            
+   0 2.4809282660e-01   0.00e+00  5.91e+00    1.007231e+00   6.497811e-02  -7.145224e-02
+BREAK: Singular matrix in Invert_RtR
