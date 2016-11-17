@@ -32,7 +32,7 @@ using namespace std;
 
 double average(vector<double>& data);
 double stdev(vector<double>& data);
-void reduceandprint(vector<double> & data, int parts);
+void reduce(vector<double> & data, int parts);
 
 int main(){
     cout << "What file do you want me to read from?" << endl;
@@ -44,8 +44,8 @@ int main(){
     while(inputfile >> number){
         data.push_back(number);
     }
-    reduceandprint(data, 1);
-    reduceandprint(data, 4);
+    reduce(data, 1);
+    reduce(data, 4);
 }
 
 double average(vector<double>& data){ // calculates the average of a vector
@@ -69,9 +69,10 @@ double stdev(vector<double>& data){ // calculates the standard deviation
     return stdev;
 }
 
-void reduceandprint(vector<double> & data, int parts){
+void reduce(vector<double> & data, int parts){
     int totalsize = data.size();
-    cout << "Splitting the data into " << parts << " sections" << endl;
+    string s = ""; if (parts > 1) s = "s";
+    cout << "Splitting the data into " << parts << " section" << s << endl;
     for(int i = 0; i < parts; i++){
         vector<double> partial; // array containing just the elements in the section we want
         for(int k = (totalsize / parts) * i; k < (totalsize / parts) * (i+1); k++){
@@ -80,4 +81,5 @@ void reduceandprint(vector<double> & data, int parts){
         cout << "The average of section " << i << " is: " << average(partial) << endl;
         cout << "The standard deviation of section " << i << " is: " << stdev(partial) << endl;
     }
+    cout << endl;
 }
