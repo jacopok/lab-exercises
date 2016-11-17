@@ -41,9 +41,10 @@ int main(){
     cout << "What should be the standard deviation? " << endl;
     double deviation;
     cin >> deviation;
-    cout << "Which file do you want these written to?" << endl;
+//  cout << "Which file do you want these written to?" << endl;
     string filename;
-    cin >> filename;
+//    cin >> filename;
+    filename = "output.txt";
     ofstream outputfile(filename);
     if (!outputfile){
         cout << "Error in opening the file"<< endl;

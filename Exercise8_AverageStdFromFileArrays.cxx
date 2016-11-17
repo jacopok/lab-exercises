@@ -34,19 +34,25 @@ double average(double data[], int index1, int index2);
 double stdev(double data[], int index1, int index2);
 
 int main(){
-    cout << "What file do you want me to read from?" << endl;
+    cout << "What file do you want to read from?" << endl;
     string filename;
     cin >> filename;
     ifstream inputfile(filename);
     double number;
-    double *data = new double[number];
-    *it1 = data.begin();
+    int it = 0;
+    while(inputfile >> number){
+        it++;
+    }
+    const int itc = it;
+    double data[itc] = {0};
+    auto *it1 = data.begin();
+    auto *it2 = data.end();
     while(inputfile >> number){
         *it1 = number;
         it1++;
     }
-    cout << average(data, it1, data.end()) << endl;
-    cout << stdev(data, it1, data.end()) << endl;
+    cout << average(data, it1, it2) << endl;
+    cout << stdev(data, it1, it2) << endl;
 }
 
 double average(double data[], int index1, int index2){

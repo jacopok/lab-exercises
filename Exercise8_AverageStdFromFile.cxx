@@ -35,9 +35,10 @@ double stdev(vector<double>& data);
 void reduce(vector<double> & data, int parts);
 
 int main(){
-    cout << "What file do you want me to read from?" << endl;
+    cout << "What file do you want to read from?" << endl;
     string filename;
-    cin >> filename;
+//  cin >> filename;
+    filename = "output.txt";
     ifstream inputfile(filename);
     double number;
     vector<double> data;
@@ -46,6 +47,7 @@ int main(){
     }
     reduce(data, 1);
     reduce(data, 4);
+    reduce(data, 20);
 }
 
 double average(vector<double>& data){ // calculates the average of a vector
@@ -78,8 +80,8 @@ void reduce(vector<double> & data, int parts){
         for(int k = (totalsize / parts) * i; k < (totalsize / parts) * (i+1); k++){
             partial.push_back(data[k]);
         }
-        cout << "The average of section " << i << " is: " << average(partial) << endl;
-        cout << "The standard deviation of section " << i << " is: " << stdev(partial) << endl;
+        cout << "The average of section " << i+1 << " is: " << average(partial) << endl;
+        cout << "The standard deviation of section " << i+1 << " is: " << stdev(partial) << endl;
     }
     cout << endl;
 }
