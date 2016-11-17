@@ -52,7 +52,7 @@ void calculate_integral(int intervals, double a, double b){
         sums_sup[index] = function(x + delta) * delta;
         cout << "S" << index << " = " << sums_sup[index] << endl;
         ++index; // calculates the area of the rectangles
-        // this is not a proper Riemann integral since it does not look ant the maximum of the function
+        // this is not a proper Riemann integral since it does not look at the maximum of the function
     }
     double integral_value_inf; 
     double integral_value_sup;
